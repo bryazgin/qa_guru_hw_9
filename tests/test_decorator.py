@@ -23,19 +23,23 @@ def test_decorator_steps():
 def open_main_page():
     browser.open("https://github.com")
 
+
 @allure.step("Ищем в поиске имя репозитория")
 def search_for_repository(repo):
     s(".header-search-button").click()
     s("#query-builder-test").send_keys(repo)
     s("#query-builder-test").press_enter()
 
+
 @allure.step("Кликаем на найденный репозиторий")
 def go_to_repository(repo):
     s(by.link_text(repo)).click()
 
+
 @allure.step("Выбираем таб issues")
 def open_issue_tab():
     s("#issues-tab").click()
+
 
 @allure.step("Проверяем, что есть issue с номером 2")
 def should_see_issue_with_number(number):
